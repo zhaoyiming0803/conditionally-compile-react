@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "pretty": true,
+    "target": "ES2015",
+    "module": "ES2015",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "noEmitOnError": true,
+    "skipLibCheck": true,
+    "preserveConstEnums": true,
+    "stripInternal": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "jsx": "react",
+    "paths": {
+      "shim-react": ["./shim-react/"],
+      "shim-react18": ["./shim-react18/"]
+    }
+  },
+  "include": [
+    "src"
+  ]
+}
