@@ -24,6 +24,10 @@ module.exports = {
       'shim-antd': resolve(`shim-${reactVersion === 'react18' ? 'antd5' : 'antd4'}`)
     }
   },
+  externals: {
+    React: 'react',
+    ReactDOM: 'react-dom'
+  },
   module: {
     rules: [
       {
@@ -46,6 +50,7 @@ module.exports = {
       template: resolve('./index.html'),
       filename: 'index.html',
       env: process.env.NODE_ENV,
+      reactVersion,
       minify: {
         removeComments: true,
         collapseWhitespace: true,

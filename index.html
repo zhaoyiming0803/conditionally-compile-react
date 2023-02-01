@@ -5,6 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <% if (htmlWebpackPlugin.options.reactVersion === 'react16') { %>
+  <script src="https://zhaoyiming0803.github.io/static/js/pure-react-project-bundle.js"></script>
+  <% } else { %>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <% } %>
 </head>
 <body>
   <div id="root"></div>
