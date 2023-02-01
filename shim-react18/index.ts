@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react'
 import { createRoot, Root } from 'react-dom/client'
 
-export interface Renderer {
+interface IRenderer {
   container: Element | DocumentFragment,
   element: ReactNode
 }
 
-const render = (renderer: Renderer) => {
+const render = (renderer: IRenderer) => {
   const { container, element } = renderer
   const root: Root = createRoot(container)
   return root.render(element)

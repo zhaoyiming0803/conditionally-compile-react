@@ -1,0 +1,13 @@
+{
+  "name": "shim-antd4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "module": "index.ts",
+  "author": "zhaoyiming0803@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "antd": "^4.24.7"
+  }
+}
