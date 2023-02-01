@@ -24,8 +24,7 @@
     ],
     "jsx": "react",
     "paths": {
-      "shim-react": ["./shim-react/"],
-      "shim-react18": ["./shim-react18/"]
+      "shim-react": ["./shim-react16/"]
     }
   },
   "include": [

@@ -5,15 +5,20 @@ function resolve(dir, file = '') {
   return path.resolve(__dirname, './', dir, file)
 }
 
+const reactVersion = 'react18' // react16 | react18
+
 module.exports = {
-  mode: 'none',
-  entry: resolve('src/index.tsx'),
+  mode: 'development',
+  entry: resolve('src', 'index.tsx'),
   output: {
     filename: 'bundle.js',
     path: resolve('dist')
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      'shim-react': resolve(`shim-${reactVersion}/src/index.ts`)
+    }
   },
   module: {
     rules: [
@@ -47,8 +52,8 @@ module.exports = {
         keepClosingSlash: true,
         minifyCSS: true,
         minifyJS: true,
-        minifyURLs: true,
-      },
+        minifyURLs: true
+      }
     })
   ],
   devServer: {
@@ -62,6 +67,6 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     open: true,
-    openPage: '../',
+    openPage: '../'
   }
 }
