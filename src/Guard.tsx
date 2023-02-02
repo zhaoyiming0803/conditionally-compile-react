@@ -38,7 +38,8 @@ export class Guard {
 
   private _runPlugins () {
     Guard.plugins.forEach(plugin => {
-      plugin.handler(this)
+      // next tick
+      setTimeout(() => plugin.handler(this))
     })
   }
 
