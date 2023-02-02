@@ -9,7 +9,7 @@ function resolve(dir, file = '') {
 const reactVersion = 'react16' // react16 | react18
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: resolve('src', 'index.tsx'),
   output: {
     filename: 'bundle.js',
