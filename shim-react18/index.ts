@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { createRoot, Root } from 'react-dom/client'
 
 interface IRenderer {
-  container: Element | DocumentFragment,
+  container: Element,
   element: ReactNode
 }
 
