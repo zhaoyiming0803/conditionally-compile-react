@@ -2,5 +2,8 @@ import { React } from 'shim-react'
 
 export function Version () {
   const { version } = React
-  return <div>React Version：{version}</div>
+  return <div>
+    <div>React.version：{version}</div>
+    <div>Compiler version: {__react_version__}</div>
+  </div>
 }

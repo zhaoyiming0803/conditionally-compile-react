@@ -1,12 +1,13 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const webpack = require('webpack')
 
 function resolve(dir, file = '') {
   return path.resolve(__dirname, './', dir, file)
 }
 
-const reactVersion = '16' // 16 | 18
+const reactVersion = '18' // 16 | 18
 
 module.exports = {
   mode: 'development',
@@ -66,6 +67,9 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'guard.min.css'
+    }),
+    new webpack.DefinePlugin({
+      __react_version__: JSON.stringify(reactVersion)
     })
   ],
   devServer: {
