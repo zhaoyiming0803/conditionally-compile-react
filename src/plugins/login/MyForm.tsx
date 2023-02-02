@@ -58,7 +58,7 @@ export function MyForm () {
     </Form.Item>
 
     <Form.Item label="Status" name="status">
-      <Switch defaultChecked onChange={onSwitchChange} />
+      <Switch defaultChecked checked onChange={onSwitchChange} />
     </Form.Item>
 
     <Form.Item label="Who" name="who">

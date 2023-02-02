@@ -6,7 +6,7 @@ function resolve(dir, file = '') {
   return path.resolve(__dirname, './', dir, file)
 }
 
-const reactVersion = 'react16' // react16 | react18
+const reactVersion = '16' // 16 | 18
 
 module.exports = {
   mode: 'development',
@@ -18,10 +18,10 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
-      'shim-react': resolve(`shim-${reactVersion}`),
-      'react': resolve(`shim-${reactVersion}/node_modules/react`),
-      'react-dom': resolve(`shim-${reactVersion}/node_modules/react-dom`),
-      'shim-antd': resolve(`shim-${reactVersion === 'react18' ? 'antd5' : 'antd4'}`)
+      'shim-react': resolve(`shim-react${reactVersion}`),
+      'react': resolve(`shim-react${reactVersion}/node_modules/react`),
+      'react-dom': resolve(`shim-react${reactVersion}/node_modules/react-dom`),
+      'shim-antd': resolve(`shim-${reactVersion === '18' ? 'antd5' : 'antd4'}`)
     }
   },
   externals: {
