@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import ReactDOM from 'react-dom'
 
-interface IRenderer {
+export interface IRenderer {
   container: Element,
   element: ReactElement
 }

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import { createRoot, Root } from 'react-dom/client'
 
-interface IRenderer {
+export interface IRenderer {
   container: Element,
   element: ReactNode
 }
