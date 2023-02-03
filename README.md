@@ -5,3 +5,4 @@
 - A basic plugin system
 - A series of Hooks
 - ......
+- Use plugins or components to build an App
