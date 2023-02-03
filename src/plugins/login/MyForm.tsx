@@ -116,11 +116,3 @@ export function MyForm () {
     </Form.Item>
   </Form>
 }
-function useState(arg0: boolean) {
-  throw new Error('Function not implemented.')
-}
-
-function useRef<T>(arg0: null) {
-  throw new Error('Function not implemented.')
-}
-
