@@ -2,7 +2,22 @@ import { React } from 'shim-react'
 
 import { Button, Form, Input } from 'shim-antd'
 
-export function ComponentA () {  
+import { IGuardInstance } from '../../Guard'
+
+interface IComponentAProps {
+  guard: IGuardInstance
+}
+
+export function ComponentA (props: IComponentAProps) {
+  const { useState } = React
+  const { guard } = props
+  const [passwordPlaceholder, resetPasswordPlaceholder] = useState('Please enter your password!!!')
+
+  guard.on('on-reset-password-placeholder', (value: string) => {
+    console.log(value)
+    resetPasswordPlaceholder(value)
+  })
+
   const onFinish = (values: any) => {
     console.log('Success:', values)
   }
@@ -12,6 +27,8 @@ export function ComponentA () {
   }
 
   return <div>
+    <div id="list-slot"></div>
+
     <Form
       name="basic"
       labelCol={{ span: 8 }}
@@ -35,10 +52,10 @@ export function ComponentA () {
         name="password"
         rules={[{ required: true, message: 'Please input your password!' }]}
       >
-        <Input.Password />
+        <Input.Password placeholder={passwordPlaceholder} />
       </Form.Item>
 
-      <div id="component-a-slot"></div>
+      <div id="agreements-slot"></div>
 
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
         <Button type="primary" htmlType="submit">

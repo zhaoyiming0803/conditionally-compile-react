@@ -12,7 +12,7 @@ export function GuardPluginAgreements () {
 
     guard.on('on-login-mounted', (...args) => {
       guard.render({
-        container: document.querySelector('#component-a-slot') as Element,
+        container: document.querySelector('#agreements-slot') as Element,
         element: <Agreements onAgreementsChange={onAgreementsChange}></Agreements>
       })
     })

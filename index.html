@@ -18,6 +18,19 @@
   </style>
 </head>
 <body>
+  <button id="reset-password">
+    Reset Password to 'xxxxxxx'
+  </button>
+
   <div class="root" id="root"></div>
+
+  <script>
+    ;(function (window, document) {
+      const resetPasswordButton = document.querySelector('#reset-password')
+      resetPasswordButton.onclick = function () {
+        window.$guard.resetPasswordPlaceholder('xxxxxxx')
+      }
+    })(window, document);
+  </script>
 </body>
 </html>

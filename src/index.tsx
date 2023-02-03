@@ -4,7 +4,10 @@ import { installPlugins } from './plugins'
 
 installPlugins()
 
-new Guard({
+const guard = new Guard({
   appId: 'xxx',
   el: '#root'
 })
+
+// @ts-ignore
+window.$guard = guard
