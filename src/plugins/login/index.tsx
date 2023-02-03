@@ -1,6 +1,6 @@
 import { React } from 'shim-react'
 
-import { Guard, GuardInstance } from '../../Guard'
+import { Guard, IGuardInstance } from '../../Guard'
 
 import { Tabs } from 'shim-antd'
 
@@ -28,15 +28,20 @@ const tabs: TabsProps['items'] = [
   }
 ]
 
-const onTabChange = (key: string) => {
+const onTabChange = (guard: IGuardInstance, key: string) => {
   console.log('on tab change: ', key)
+  if (key === '2') {
+    setTimeout(() => {
+      guard.emit('on-login-mounted', 1, 2, 3, 4)
+    })
+  }
 }
 
 export function GuardPluginLogin () {
-  Guard.install('GuardPluginLogin', (guard: GuardInstance) => {
+  Guard.install('GuardPluginLogin', (guard: IGuardInstance) => {
     guard.render({
       container: document.querySelector('#guard-container') as Element,
-      element: <Tabs defaultActiveKey="1" items={tabs} onChange={onTabChange} />
+      element: <Tabs defaultActiveKey="1" items={tabs} onChange={(key: string) => onTabChange(guard, key)} />
     })
   })
 }

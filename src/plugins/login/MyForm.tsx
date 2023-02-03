@@ -6,8 +6,20 @@ import type { CheckboxValueType } from 'shim-antd/es/checkbox/Group'
 
 import type { DatePickerProps } from 'shim-antd'
 
+import { Agreements } from '../agreements/Agreements'
+
 export function MyForm () {
+  const { useState } = React
+
+  const [form] = Form.useForm()
+
+  const [hasAcceptAgreements, resetHasAcceptAgreements] = useState(false)
+
   const onFinish = (values: any) => {
+    console.log('hasAcceptAgreements: ', hasAcceptAgreements)
+    if (!hasAcceptAgreements) {
+      return console.log('Fail: no accept agreements!!!')
+    }
     console.log('Success:', values)
   }
   
@@ -15,8 +27,9 @@ export function MyForm () {
     console.log('Failed:', errorInfo)
   }
 
-  const onSwitchChange = (checked: boolean) => {
+  const onAgreementsChange = (checked: boolean) => {
     console.log(`switch to ${checked}`)
+    resetHasAcceptAgreements(checked)
   }
 
   const onSelectChange = (selected: string) => {
@@ -32,14 +45,13 @@ export function MyForm () {
   }
 
   return <Form
-    name="basic"
     labelCol={{ span: 8 }}
     wrapperCol={{ span: 16 }}
     style={{ maxWidth: 600 }}
     initialValues={{ remember: true }}
     onFinish={onFinish}
     onFinishFailed={onFinishFailed}
-    autoComplete="off"
+    form={form}
   >
     <Form.Item
       label="Username"
@@ -57,9 +69,7 @@ export function MyForm () {
       <Input.Password />
     </Form.Item>
 
-    <Form.Item label="Status" name="status">
-      <Switch defaultChecked checked onChange={onSwitchChange} />
-    </Form.Item>
+    <Agreements onAgreementsChange={onAgreementsChange}></Agreements>
 
     <Form.Item label="Who" name="who">
       <Select
@@ -106,3 +116,11 @@ export function MyForm () {
     </Form.Item>
   </Form>
 }
+function useState(arg0: boolean) {
+  throw new Error('Function not implemented.')
+}
+
+function useRef<T>(arg0: null) {
+  throw new Error('Function not implemented.')
+}
+
