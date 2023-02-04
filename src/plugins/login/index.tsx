@@ -19,29 +19,35 @@ const onTabChange = (guard: IGuardInstance, key: string) => {
   }
 }
 
-export function GuardPluginLogin () {
+export function GuardPluginLogin() {
   Guard.install('GuardPluginLogin', (guard: IGuardInstance) => {
     const tabs: TabsProps['items'] = [
       {
         key: '1',
-        label: `React Version`,
+        label: 'React Version',
         children: <Version></Version>
       },
       {
         key: '2',
-        label: `ComponentA`,
+        label: 'ComponentA',
         children: <ComponentA guard={guard}></ComponentA>
       },
       {
         key: '3',
-        label: `Form`,
+        label: 'Form',
         children: <MyForm></MyForm>
       }
     ]
 
     guard.render({
       container: document.querySelector('#guard-container') as Element,
-      element: <Tabs defaultActiveKey="1" items={tabs} onChange={(key: string) => onTabChange(guard, key)} />
+      element: (
+        <Tabs
+          defaultActiveKey="1"
+          items={tabs}
+          onChange={(key: string) => onTabChange(guard, key)}
+        />
+      )
     })
   })
 }

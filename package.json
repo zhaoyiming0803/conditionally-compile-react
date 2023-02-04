@@ -4,13 +4,20 @@
   "description": "Compile React project conditionally",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=dev webpack-dev-server --progress --color --config webpack.config.js",
-    "build": "rm -rf dist && webpack --config webpack.config.js"
+    "prepare": "husky install",
+    "build": "rm -rf dist && webpack --config webpack.config.js",
+    "lint": "eslint --ext .tsx,.ts src/**/*",
+    "lint:fix": "eslint --fix --ext .tsx,.ts src/**/*"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^6.7.3",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.1",
     "mini-css-extract-plugin": "^2.6.1",
     "ts-loader": "^9.4.2",
     "typescript": "^4.9.5",

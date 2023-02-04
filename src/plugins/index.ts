@@ -4,8 +4,7 @@ import { GuardPluginAgreements } from './agreements'
 
 import { GuardPluginList } from './List'
 
-
-export function installPlugins () {
+export function installPlugins() {
   GuardPluginLogin()
   GuardPluginAgreements()
   GuardPluginList()
