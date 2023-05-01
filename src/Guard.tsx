@@ -111,6 +111,7 @@ export class Guard {
     this._customizedElements.push(hash)
     
     action()
+
     return htmlFactory()
   }
 
